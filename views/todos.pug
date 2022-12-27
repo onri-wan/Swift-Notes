@@ -1,0 +1,20 @@
+extends layout 
+
+block content
+
+    h1 Ultimate Unbelievable Believable Fantastic Never Forget Notes
+
+    form(action="/todos/addTodo", method="POST") 
+        input(type="text", name="todoItem", placeholder="What do you need to do..." required)
+        button(type="submit") Add
+
+    ul 
+        each element in todos 
+            li(class="item" data-id= element.id)
+                if element.completed
+                    span(class="done")= element.todo
+                else
+                    span(class="not-done")= element.todo
+                <span class='fa fa-trash'></span>
+
+    h2 Number of things left to do: !{todosLeft}
