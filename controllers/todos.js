@@ -3,15 +3,15 @@ const Todo = require('../models/Todo')
 module.exports = {
     getTodos: async (req, res) => {
         try {
-            const todoItems = await Todo.find()
-            const itemsLeft = await Todo.countDocuments({completed: false})
-            res.render('todos.pug', {todos: todoItems, todosLeft: itemsLeft})
+            const todoItems = await Todo.find({userId:req.user.id})
+            const itemsLeft = await Todo.countDocuments({userId:req.user.id, completed: false})
+            res.render('todos.pug', {todos: todoItems, todosLeft: itemsLeft, user: req.user})
         } catch (error) { console.error(err) }
     },
     addTodo: async (req, res) => {
         try {
-            await Todo.create({todo: req.body.todoItem, completed: false})
-             res.redirect('/todos')
+            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            res.redirect('/todos')
         } catch (error) { console.error(err) }
     },
     markComplete: async (req, res) => {

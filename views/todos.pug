@@ -17,4 +17,7 @@ block content
                     span(class="not-done")= element.todo
                 <span class='fa fa-trash'></span>
 
-    h2 Number of things left to do: !{todosLeft}
+    h2 Hi, !{user.userName}!
+    h3 Number of things left to do: !{todosLeft}
+
+    a(href='/logout') Logout
