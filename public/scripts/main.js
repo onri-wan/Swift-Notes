@@ -1,6 +1,6 @@
 const deleteBtn = document.querySelectorAll('.fa-trash')
-const itemNotDone = document.querySelectorAll('.item .not-done')
-const itemDone = document.querySelectorAll('.item .done')
+const itemNotDone = document.querySelectorAll('.not-done')
+const itemDone = document.querySelectorAll('.done')
 
 Array.from(deleteBtn).forEach((element) => {
     element.addEventListener('click', deleteTodo)
@@ -30,7 +30,7 @@ async function deleteTodo() {
 }
 
 async function markComplete() {
-    const todoId = this.parentElement.dataset.id
+    const todoId = this.dataset.id
     try {
         const response = await fetch('todos/markComplete', {
             method: 'PUT',
@@ -45,7 +45,7 @@ async function markComplete() {
 }
 
 async function markIncomplete() {
-    const todoId = this.parentElement.dataset.id
+    const todoId = this.dataset.id
     try {
         const response = await fetch('todos/markIncomplete', {
             method: 'PUT',

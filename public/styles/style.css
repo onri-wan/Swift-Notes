@@ -1,12 +1,11 @@
 /* app name */
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 /* body */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;900&display=swap');
 
-
-.done {
-    color: gray;
-    text-decoration: line-through;
+body {
+    background-color: #DEF5E5;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .app-name {
@@ -59,6 +58,49 @@
     border-top-right-radius: 0;
 }
 
-.get-started {
-    font-family: 'Montserrat', sans-serif;
+/* TODOS */
+form {
+    max-width: 400px;
+    margin: auto;
+}
+
+li {
+    list-style-type: none;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.todo-task {
+    flex-grow: 1;
+    max-width: 300px;
+    overflow-wrap: break-word;
+}
+
+.trash-icon {
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* TODO task is completed - green background + text strike-through */
+.done {
+    color: gray;
+    border: 2px solid #8EC3B0;
+    background-color: #BCEAD5;
+    font-weight: 300;
+}
+
+.done .todo-task {
+    text-decoration: line-through;
+}
+
+/* TODO task is not completed - red background */
+.not-done {
+    border: 2px solid #e24141;
+    background-color: #e3aaaa;
+    font-weight: 900;
 }

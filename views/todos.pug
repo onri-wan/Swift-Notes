@@ -2,20 +2,27 @@ extends layout
 
 block content
 
-    a(href='/logout') Logout
+    div(class='text-center')
+        div(class='mt-5 mb-4')
+            h2 Hi, !{user.userName}!
+            a(href='/logout') Logout
 
-    h2 Hi, !{user.userName}!
-    h3 Number of things left to do: !{todosLeft}
+        h3 Number of things left to do: !{todosLeft}
 
-    form(action="/todos/addTodo", method="POST") 
-        input(type="text", name="todoItem", placeholder="What do you need to do..." required)
-        button(type="submit") Add
+        form(action="/todos/addTodo", method="POST" class='my-4')
+            div(class='form-floating mb-2')
+                input(type="text", name="todoItem", class='form-control' placeholder="What do you need to do..." required)
+                label(for='todoItem') What do you need to do...
+            
+            button(type="submit" class='w-100 btn btn-lg btn-primary') Add
 
-    ul 
-        each element in todos 
-            li(class="item" data-id= element.id)
+        ul(class='px-0 my-5')
+            each element in todos 
                 if element.completed
-                    span(class="done")= element.todo
+                    li(class="done item my-3 py-3" data-id= element.id)
+                        span(class="todo-task ps-3")= element.todo  
+                        span(class='fa fa-trash trash-icon')      
                 else
-                    span(class="not-done")= element.todo
-                <span class='fa fa-trash'></span>
+                    li(class="not-done item my-3 py-3" data-id= element.id)
+                        span(class="todo-task ps-3")= element.todo
+                        span(class='fa fa-trash trash-icon')
