@@ -2,15 +2,23 @@ extends layout
 
 block login
 
-    if locals.messages.errors
-        each element in messages.errors
-            div(class='alert alert-danger') !{element.msg}
-        
-    if locals.messages.info
-        each element in messages.info
-            div(class='alert alert-danger') !{element.msg}
+    main(class='form-login w-100 m-auto text-center mt-5')
+        if locals.messages.errors
+            each element in messages.errors
+                div(class='alert alert-danger') !{element.msg}
 
-    form(action="/login", method="POST") 
-        input(type="email", name="email", placeholder="Email")
-        input(type="password", name="password", placeholder="Password")
-        button(type="submit") Submit
+        form(action="/login", method="POST") 
+            h2(class='h3 mb-3 fw-normal') Login
+
+            .form-floating
+                input(type="email", name="email", class='form-control', placeholder='name@example.com')
+                label(for="email") Email Address
+
+            .form-floating  
+                input(type="password", name="password", class='form-control', placeholder='Password')
+                label(for="password") Password
+
+            button(type="submit" class='w-100 btn btn-lg btn-primary mt-3') Submit
+
+        p(class='mt-3') Don't have an account? 
+            a(href='/signup') Signup

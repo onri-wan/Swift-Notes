@@ -2,7 +2,10 @@ extends layout
 
 block content
 
-    h1 Ultimate Unbelievable Believable Fantastic Never Forget Notes
+    a(href='/logout') Logout
+
+    h2 Hi, !{user.userName}!
+    h3 Number of things left to do: !{todosLeft}
 
     form(action="/todos/addTodo", method="POST") 
         input(type="text", name="todoItem", placeholder="What do you need to do..." required)
@@ -16,8 +19,3 @@ block content
                 else
                     span(class="not-done")= element.todo
                 <span class='fa fa-trash'></span>
-
-    h2 Hi, !{user.userName}!
-    h3 Number of things left to do: !{todosLeft}
-
-    a(href='/logout') Logout
