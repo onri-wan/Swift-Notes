@@ -88,6 +88,7 @@ li {
 
 /* TODO task is completed - green background + text strike-through */
 .done {
+    cursor: pointer;
     color: gray;
     border: 2px solid #8EC3B0;
     background-color: #BCEAD5;
@@ -100,6 +101,7 @@ li {
 
 /* TODO task is not completed - red background */
 .not-done {
+    cursor: pointer;
     border: 2px solid #e24141;
     background-color: #e3aaaa;
     font-weight: 900;
